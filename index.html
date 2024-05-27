@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,94 +9,124 @@
    <style>
     /* Dark theme styles */
     
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
-    }
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  max-width: 800px; /* Ensures a max width for larger screens */
+  margin: 0 auto; /* Centers the body horizontally */
+  padding: 0 10px; /* Adds padding for small screens */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
 
-    #map {
-      width: 100%;
-      height: 500px;
-    }
+#map {
+  width: 100%;
+  height: 500px;
+}
 
-    .container {
-      max-width: 100%;
-      margin: 20px auto;
-      background-color: #1e1e1e;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      padding: 20px;
-    }
+.container {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
 
-    .header {
-      background-color: #333;
-      color: #e0e0e0;
-      padding: 20px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      margin-bottom: 20px;
-    }
+.header {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 20px;
+}
 
-    .header h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #e0e0e0;
-    }
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #e0e0e0;
+}
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      color: #e0e0e0;
-    }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  color: #e0e0e0;
+}
 
-    th, td {
-      border: 1px solid #444;
-      padding: 8px;
-      text-align: left;
-      font-size: 12px;
-    }
+th, td {
+  border: 1px solid #444;
+  padding: 8px;
+  text-align: left;
+  font-size: 12px;
+}
 
-    th {
-      background-color: #333;
-    }
+th {
+  background-color: #333;
+}
 
-    .view-on-map-button {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #007bff;
-      color: #fff;
-      font-size: 12px;
-      cursor: pointer;
-    }
+.view-on-map-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
 
-    .view-all-button {
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #28a745;
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-    }
+.view-all-button {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
 
-    .totals {
-      margin-bottom: 10px;
-      font-size: 14px;
-      color: #e0e0e0;
-    }
+.totals {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #e0e0e0;
+}
 
-    .totals span {
-      margin-right: 15px;
-    }
+.totals span {
+  margin-right: 15px;
+}
 
-    .leaflet-control-attribution,
-    .leaflet-control-zoom {
-      background-color: #333;
-      color: #e0e0e0;
-    }
+.leaflet-control-attribution,
+.leaflet-control-zoom {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+/* Media Queries for Mobile Optimization */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  th, td {
+    font-size: 10px;
+    padding: 6px;
+  }
+
+  .view-on-map-button, .view-all-button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .totals {
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -147,6 +178,15 @@
       <td>26 January 2023</td>
       <td><button class="view-on-map-button" onclick="viewOnMap([[51.205162601119845, 4.37908172607422], [51.203979518124676, 4.385433197021485], [51.210647407041904, 4.4063758850097665], [51.21693799772028, 4.414014816284181], [51.2197335399395, 4.415473937988282], [51.220969975619994, 4.406890869140626], [51.221883841517354, 4.397277832031251]], 'Campaign 3', 28, 17, 3900)">View on Map</button></td>
     </tr>
+	
+	 <tr>
+      <td>Campaign 4</td>
+      <td>28</td>
+      <td>17</td>
+      <td>3900</td>
+      <td>26 January 2023</td>
+      <td><button class="view-on-map-button" onclick="viewOnMap([[51.22247515684192, 4.416418075561524], [51.22930161093041, 4.4289493560791025], [51.22027112475077, 4.4310951232910165], [51.219518504257174, 4.42002296447754]], 'Campaign 3', 28, 17, 3900)">View on Map</button></td>
+    </tr>
     <!-- Add more campaign rows here as needed -->
   </table>
 </div>
@@ -177,6 +217,13 @@
     {
       coordinates: [[51.205162601119845, 4.37908172607422], [51.203979518124676, 4.385433197021485], [51.210647407041904, 4.4063758850097665], [51.21693799772028, 4.414014816284181], [51.2197335399395, 4.415473937988282], [51.220969975619994, 4.406890869140626], [51.221883841517354, 4.397277832031251]],
       name: 'Campaign 3',
+      qrScans: 28,
+      promoCodes: 17,
+      flyers: 3900
+    },
+	{
+      coordinates: [[51.22247515684192, 4.416418075561524], [51.22930161093041, 4.4289493560791025], [51.22027112475077, 4.4310951232910165], [51.219518504257174, 4.42002296447754]],
+      name: 'Campaign 4',
       qrScans: 28,
       promoCodes: 17,
       flyers: 3900
