@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
   font-family: Arial, sans-serif;
   background-color: #121212;
   color: #e0e0e0;
-  max-width: 800px; /* Ensures a max width for larger screens */
+  max-width: 100%; /* Ensures a max width for larger screens */
   margin: 0 auto; /* Centers the body horizontally */
   padding: 0 10px; /* Adds padding for small screens */
   box-sizing: border-box; /* Ensures padding doesn't affect width */
@@ -32,21 +33,62 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 20px;
 }
-
 .header {
-  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  
   color: #e0e0e0;
-  padding: 20px;
+  
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  
 }
 
 .header h1 {
   margin: 0;
-  font-size: 24px;
-  color: #e0e0e0;
+  font-size: 24px; /* Font size for better look */
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add text shadow for contrast */
 }
+
+.view-all-button {
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(200, 200, 200, 0.3)); /* Refined gradient background */
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif; /* Sleek font */
+  padding: 12px 24px; /* Slightly increased padding for a better look */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+  margin-left: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for more depth */
+  text-transform: uppercase; /* Uppercase text for a professional look */
+  letter-spacing: 1px; /* Increased letter spacing for readability */
+  display: flex;
+  align-items: center; /* Center icon and text vertically */
+}
+
+.view-all-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(200, 200, 200, 0.5)); /* Brighter gradient on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.button-icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+
+
+
+
+
+
 
 table {
   border-collapse: collapse;
@@ -86,15 +128,52 @@ th {
   cursor: pointer;
 }
 
+/* Container for totals section */
 .totals {
-  margin-bottom: 10px;
-  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  font-size: 12px;
   color: #e0e0e0;
+  border-bottom: 2px solid #333;
 }
 
+/* Individual total item styled as tab */
 .totals span {
-  margin-right: 15px;
+  margin-right: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #333;
+  border-bottom: none;
+  margin-bottom: -1px; /* Ensure the bottom border doesn't create extra space */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: bold;
 }
+
+#totalFlyers {
+  background-color: #1e90ff; /* DodgerBlue */
+}
+
+#totalQrCodes {
+  background-color: #32cd32; /* LimeGreen */
+}
+
+#totalPromoCodes {
+  background-color: #ff4500; /* OrangeRed */
+}
+
+.totals span:hover {
+  filter: brightness(85%);
+}
+
+.totals span.active {
+  background-color: #333;
+  color: #fff;
+}
+
+
 
 .leaflet-control-attribution,
 .leaflet-control-zoom {
@@ -133,13 +212,22 @@ th {
 
 <div class="container">
   <div class="header">
-    <h1>Campaign Tracker Dashboard</h1>
+    <div class="header">
+  <h1>Campaign Tracker Dashboard</h1>
+  <button class="view-all-button">
+  <img src="https://bafkreicx6uicrd6eklive6jwr7zpgeociojzyh6dym7qxbohkxxjq74gna.ipfs.nftstorage.link/" alt="Icon" class="button-icon">
+  View Progress
+</button>
+
+</div>
+
+	
   </div>
 
   <div class="totals">
-    <button class="view-all-button" onclick="viewAllOnMap()">View All</button>
-    <span id="totalFlyers">Total Flyers Delivered: 0</span> |
-    <span id="totalQrCodes">Total QR Codes Scanned: 0</span> |
+    
+    <span id="totalFlyers">Total Flyers Delivered: 0</span> 
+    <span id="totalQrCodes">Total QR Codes Scanned: 0</span> 
     <span id="totalPromoCodes">Total Promo Codes Entered: 0</span>
   </div>
 
@@ -167,7 +255,7 @@ th {
       <td>28</td>
       <td>17</td>
       <td>3900</td>
-      <td>26 January 2023</td>
+      <td>27 January 2023</td>
       <td><button class="view-on-map-button" onclick="viewOnMap([[51.2041946263841, 4.388952255249024], [51.20946446493662, 4.407491683959962], [51.192523552234164, 4.4207096099853525], [51.19467512458473, 4.399251937866212], [51.199354447559195, 4.388608932495118]], 'Campaign 2', 28, 17, 3900)">View on Map</button></td>
     </tr>
     <tr>
@@ -175,7 +263,7 @@ th {
       <td>28</td>
       <td>17</td>
       <td>3900</td>
-      <td>26 January 2023</td>
+      <td>28 January 2023</td>
       <td><button class="view-on-map-button" onclick="viewOnMap([[51.205162601119845, 4.37908172607422], [51.203979518124676, 4.385433197021485], [51.210647407041904, 4.4063758850097665], [51.21693799772028, 4.414014816284181], [51.2197335399395, 4.415473937988282], [51.220969975619994, 4.406890869140626], [51.221883841517354, 4.397277832031251]], 'Campaign 3', 28, 17, 3900)">View on Map</button></td>
     </tr>
 	
@@ -184,7 +272,7 @@ th {
       <td>28</td>
       <td>17</td>
       <td>3900</td>
-      <td>26 January 2023</td>
+      <td>29 January 2023</td>
       <td><button class="view-on-map-button" onclick="viewOnMap([[51.22247515684192, 4.416418075561524], [51.22930161093041, 4.4289493560791025], [51.22027112475077, 4.4310951232910165], [51.219518504257174, 4.42002296447754]], 'Campaign 3', 28, 17, 3900)">View on Map</button></td>
     </tr>
 	  <tr>
@@ -192,7 +280,7 @@ th {
       <td>28</td>
       <td>17</td>
       <td>3900</td>
-      <td>26 January 2023</td>
+      <td>30 January 2023</td>
       <td><button class="view-on-map-button" onclick="viewOnMap([[51.19940823011799, 4.431867599487306], [51.21059363760544, 4.4228553771972665], [51.213819692667286, 4.433670043945313], [51.2138734583368, 4.443025588989259], [51.20715226308073, 4.440193176269532]], 'Campaign 3', 28, 17, 3900)">View on Map</button></td>
     </tr>
     <!-- Add more campaign rows here as needed -->
