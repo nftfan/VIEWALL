@@ -67,8 +67,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for more depth */
   text-transform: uppercase; /* Uppercase text for a professional look */
   letter-spacing: 1px; /* Increased letter spacing for readability */
-  display: flex;
-  align-items: center; /* Center icon and text vertically */
 }
 
 .view-all-button:hover {
@@ -76,13 +74,6 @@
   transform: scale(1.05); /* Slightly larger on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
-
-.button-icon {
-  width: 20px; /* Adjust the size as needed */
-  height: 20px; /* Adjust the size as needed */
-  margin-right: 10px; /* Space between icon and text */
-}
-
 
 
 
@@ -214,11 +205,7 @@ th {
   <div class="header">
     <div class="header">
   <h1>Campaign Tracker Dashboard</h1>
-  <button class="view-all-button">
-  <img src="https://bafkreicx6uicrd6eklive6jwr7zpgeociojzyh6dym7qxbohkxxjq74gna.ipfs.nftstorage.link/" alt="Icon" class="button-icon">
-  View Progress
-</button>
-
+  <button class="view-all-button" onclick="viewAllOnMap()">View Progress</button>
 </div>
 
 	
